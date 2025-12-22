@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShieldCheck, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   return (
@@ -8,13 +8,11 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4 group cursor-pointer">
-            <div className="bg-[#0A0E1A] p-2 rounded-none transition-transform">
-              <ShieldCheck className="h-6 w-6 text-white" />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-xl font-extrabold tracking-tighter text-[#0A0E1A]">GRAND MISSION</span>
-              <span className="text-xs font-black text-slate-400 tracking-[0.4em] uppercase">Dentistry</span>
-            </div>
+            <img 
+              src="/images/grand_mission-logo.webp" 
+              alt="Grand Mission Dentistry Logo" 
+              className="h-8 w-auto object-contain"
+            />
           </div>
           <div className="hidden md:flex items-center gap-12">
             <div className="flex gap-10">

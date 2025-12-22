@@ -61,48 +61,51 @@ export const Hero: React.FC = () => {
           {!isSuccess ? (
             <div className="bg-white p-1 md:p-4">
               <div className="mb-14">
-                <h2 className="text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">Smile Evaluation</h2>
+                <h2 className="text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">
+                  <span className="inline-block">Smile</span>
+                  <span className="inline-block ml-4">Evaluation</span>
+                </h2>
                 <div className="w-12 h-1.5 bg-[#FF9A00]"></div>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Full Name</label>
+                    <label className="text-xs font-black text-black uppercase tracking-[0.2em]">Full Name</label>
                     <input 
                       type="text" 
                       required
                       placeholder="Jane Smith"
-                      className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:text-slate-300 transition-all"
+                      className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:font-normal placeholder:text-[#94a3b8] transition-all"
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Phone Number</label>
+                    <label className="text-xs font-black text-black uppercase tracking-[0.2em]">Phone Number</label>
                     <input 
                       type="tel" 
                       required
                       placeholder="(281) 000-0000"
-                      className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:text-slate-300 transition-all"
+                      className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:font-normal placeholder:text-[#94a3b8] transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Email Address</label>
+                  <label className="text-xs font-black text-black uppercase tracking-[0.2em]">Email Address</label>
                   <input 
                     type="email" 
                     required
                     placeholder="jane@example.com"
-                    className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:text-slate-300 transition-all"
+                    className="w-full px-5 py-5 bg-[#F8FAFC] rounded-none border-slate-100 focus:border-[#FF9A00] outline-none text-base font-bold placeholder:font-normal placeholder:text-[#94a3b8] transition-all"
                   />
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Clinical Photo</label>
+                  <label className="text-xs font-black text-black uppercase tracking-[0.2em]">Clinical Photo</label>
                   <div className="border border-dashed border-slate-200 rounded-none p-16 text-center hover:border-[#FF9A00] transition-all cursor-pointer relative bg-slate-50/50 group">
                     <input type="file" required className="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" />
                     <Upload className="h-8 w-8 text-slate-300 mx-auto mb-4 group-hover:text-[#FF9A00] transition-colors" />
-                    <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em]">Drop Portrait File</p>
+                    <p className="text-xs font-black text-[#94a3b8] uppercase tracking-[0.3em]">Upload your Selfie</p>
                   </div>
                 </div>
 
@@ -110,7 +113,7 @@ export const Hero: React.FC = () => {
                   <div className="pt-1">
                     <input type="checkbox" required className="w-4 h-4 accent-[#FF9A00] rounded-none border-slate-300" id="consent" />
                   </div>
-                  <label htmlFor="consent" className="text-xs text-slate-400 font-bold leading-relaxed cursor-pointer uppercase tracking-widest">
+                  <label htmlFor="consent" className="text-xs text-black font-bold leading-relaxed cursor-pointer uppercase tracking-widest">
                     I acknowledge this visualization is for illustrative purposes only.
                   </label>
                 </div>

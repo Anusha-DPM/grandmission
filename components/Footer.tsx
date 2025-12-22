@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShieldCheck, ArrowUp, MapPin, Phone, Mail } from 'lucide-react';
+import { ShieldCheck, ArrowUp, MapPin, Phone } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -48,12 +48,6 @@ export const Footer: React.FC = () => {
                 <Phone className="w-5 h-5 text-slate-600 shrink-0" />
                 <a href="tel:2817898836" className="text-sm text-white font-black uppercase tracking-[0.15em] hover:text-[#FF9A00] transition-colors">
                   (281) 789-8836
-                </a>
-              </div>
-              <div className="flex gap-5 items-center">
-                <Mail className="w-5 h-5 text-slate-600 shrink-0" />
-                <a href="mailto:office@grandmissiondentistry.com" className="text-sm text-white font-black uppercase tracking-[0.15em] hover:text-[#FF9A00] transition-colors">
-                  OFFICE@GRANDMISSIONDENTISTRY.COM
                 </a>
               </div>
             </div>

@@ -6,7 +6,7 @@ export const Philosophy: React.FC = () => {
     <section className="py-32 bg-[#F7F9F7] relative overflow-hidden border-y border-slate-100">
       {/* Structural Watermark */}
       <div className="absolute top-0 right-0 p-20 opacity-[0.03] select-none pointer-events-none">
-        <span className="text-[20rem] font-black tracking-tighter leading-none text-[#71866B]">SAGE</span>
+        <span className="text-[20rem] font-black tracking-tighter leading-none text-[#3B86F2]">SAGE</span>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
@@ -19,10 +19,10 @@ export const Philosophy: React.FC = () => {
               </div>
               <h2 className="text-5xl lg:text-6xl font-extrabold text-[#0A0E1A] tracking-tighter leading-[0.9] uppercase mb-10">
                 THE <br />
-                <span className="text-[#71866B]">ARCHITECTS</span> <br />
+                <span className="text-[#3B86F2]">ARCHITECTS</span> <br />
                 OF JOY.
               </h2>
-              <p className="text-[#71866B] font-bold text-sm uppercase tracking-widest leading-relaxed">
+              <p className="text-[#3B86F2] font-bold text-sm uppercase tracking-widest leading-relaxed">
                 Richmond’s premier destination for AI-driven smile transformations.
               </p>
             </div>
