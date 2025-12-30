@@ -21,9 +21,6 @@ export const Footer: React.FC = () => {
                 className="h-10 w-auto object-contain"
               />
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed font-bold uppercase tracking-[0.2em] opacity-70 max-w-[320px]">
-              A nexus of clinical excellence and aesthetic precision. Engineering the future of personalized dental care in Richmond, TX.
-            </p>
           </div>
           
           {/* Contact Column */}
