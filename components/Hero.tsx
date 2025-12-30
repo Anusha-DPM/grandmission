@@ -78,11 +78,9 @@ export const Hero: React.FC = () => {
             <h2 className="text-white mb-6 font-bold" style={{ fontSize: '22px' }}>
               DISCLAIMER:
             </h2>
-            <div className="text-slate-300 leading-relaxed space-y-4" style={{ fontSize: '14px' }}>
-              <p className="uppercase">
-                SMILE PREVIEWS ARE DIGITAL SIMULATIONS CREATED TO HELP YOU VISUALIZE POTENTIAL OUTCOMES OF TREATMENT. THESE IMAGES ARE FOR ILLUSTRATIVE PURPOSES ONLY AND ARE NOT A GUARANTEE OF SPECIFIC RESULTS.
-             ACTUAL TREATMENT RESULTS MAY VARY BASED ON INDIVIDUAL ORAL HEALTH, ANATOMY, TREATMENT PLAN, COMPLIANCE, AND CLINICAL FACTORS DETERMINED DURING YOUR DENTAL EVALUATION. FINAL OUTCOMES DEPEND ON THE TYPE OF TREATMENT PROVIDED AND HOW YOUR SMILE RESPONDS OVER TIME.
-                YOUR DENTIST WILL REVIEW ALL TREATMENT OPTIONS WITH YOU AND DISCUSS WHAT RESULTS MAY BE REALISTICALLY EXPECTED FOR YOUR UNIQUE SMILE.
+            <div className="text-slate-300 leading-relaxed" style={{ fontSize: '12px' }}>
+              <p>
+                Smile previews are digital simulations created to help you visualize potential outcomes of treatment. These images are for illustrative purposes only and are not a guarantee of specific results. Actual treatment results may vary based on individual oral health, anatomy, treatment plan, compliance, and clinical factors determined during your dental evaluation. Final outcomes depend on the type of treatment provided and how your smile responds over time. Your dentist will review all treatment options with you and discuss what results may be realistically expected for your unique smile.
               </p>
             </div>
           </div>
