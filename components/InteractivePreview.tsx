@@ -5,6 +5,7 @@ export const InteractivePreview: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showBefore, setShowBefore] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [viewMode, setViewMode] = useState<'photo' | 'video'>('photo');
 
   useEffect(() => {
     const checkMobile = () => {
@@ -15,9 +16,9 @@ export const InteractivePreview: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Auto-slider effect for mobile
+  // Auto-slider effect for mobile (only in photo mode)
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || viewMode !== 'photo') return;
     
     // Reset to before when carousel changes
     setShowBefore(true);
@@ -27,7 +28,7 @@ export const InteractivePreview: React.FC = () => {
     }, 3000); // Switch every 3 seconds
 
     return () => clearInterval(interval);
-  }, [isMobile, currentIndex]);
+  }, [isMobile, currentIndex, viewMode]);
 
   const carouselImages = [
     {
@@ -35,6 +36,7 @@ export const InteractivePreview: React.FC = () => {
       iframe: 'https://smile4d.ai/preview/eaedb500-d22f-4014-bbbf-1f6cbc90c348',
       before: '/images/before-mobile view.jpg',
       after: '/images/after-mobile view.png',
+      video: '/images/first.mp4',
       title: 'VENEER ARCHITECTURE',
       description: 'Full arch reconstruction using E-max porcelain.'
     },
@@ -43,6 +45,7 @@ export const InteractivePreview: React.FC = () => {
       iframe: 'https://smile4d.ai/preview/b7d8a96c-ea5c-4a27-8009-a90648d284c2',
       before: '/images/before2-mobile view.jpg',
       after: '/images/after2-mobile view.png',
+      video: '/images/second.mp4',
       title: 'ALIGNER PROTOCOL',
       description: 'Phase 1 orthodontic correction.'
     },
@@ -51,6 +54,7 @@ export const InteractivePreview: React.FC = () => {
       iframe: 'https://smile4d.ai/preview/6d230df1-812c-49f0-a378-a7ffb92b26fe',
       before: '/images/before3-mobile view.jpg',
       after: '/images/after3-mobile view.png',
+      video: '/images/third.mp4',
       title: 'ESTHETIC BONDING',
       description: 'Composite rejuvenation for enamel attrition.'
     }
@@ -74,61 +78,116 @@ export const InteractivePreview: React.FC = () => {
           
           {/* Image Carousel */}
           <div className="relative w-full overflow-hidden bg-black shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)]">
-            {/* Mobile: Before/After Toggle Slider */}
+            {/* Mobile: Photo/Video Preview with Before/After */}
             <div className="md:hidden relative w-[calc(100%+0.5rem)] -mx-0.5 md:mx-0 overflow-hidden bg-black rounded-lg md:rounded-2xl">
               <div className="relative w-full h-[60vh] overflow-hidden bg-black">
-                {/* Image Container with Transition */}
-                <div className="relative w-full h-full">
-                  {/* Before Image */}
-                  <div 
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
-                      showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                    }`}
-                  >
-                    <img 
-                      src={carouselImages[currentIndex].before} 
-                      className="w-full h-full object-cover" 
-                      alt="Before" 
-                    />
-                  </div>
+                {/* Photo Preview Mode */}
+                {viewMode === 'photo' && (
+                  <div className="relative w-full h-full">
+                    {/* Before Image */}
+                    <div 
+                      className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+                        showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                      }`}
+                    >
+                      <img 
+                        src={carouselImages[currentIndex].before} 
+                        className="w-full h-full object-cover" 
+                        alt="Before" 
+                      />
+                    </div>
 
-                  {/* After Image */}
-                  <div 
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
-                      !showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                    }`}
-                  >
-                    <img 
-                      src={carouselImages[currentIndex].after} 
-                      className="w-full h-full object-cover" 
-                      alt="After" 
-                    />
-                  </div>
-                </div>
+                    {/* After Image */}
+                    <div 
+                      className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+                        !showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                      }`}
+                    >
+                      <img 
+                        src={carouselImages[currentIndex].after} 
+                        className="w-full h-full object-cover" 
+                        alt="After" 
+                      />
+                    </div>
 
-                {/* Toggle Buttons */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2 bg-black/70 backdrop-blur-md px-3 py-2.5 rounded-full">
-                  <button
-                    onClick={() => setShowBefore(true)}
-                    className={`px-5 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
-                      showBefore 
-                        ? 'bg-[#FF9A00] text-white' 
-                        : 'bg-white/20 text-white/70'
-                    }`}
-                  >
-                    Before
-                  </button>
-                  <button
-                    onClick={() => setShowBefore(false)}
-                    className={`px-5 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
-                      !showBefore 
-                        ? 'bg-[#FF9A00] text-white' 
-                        : 'bg-white/20 text-white/70'
-                    }`}
-                  >
-                    After
-                  </button>
-                </div>
+                    {/* Before/After Toggle Buttons */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2 bg-black/70 backdrop-blur-md px-3 py-2.5 rounded-full">
+                      <button
+                        onClick={() => setShowBefore(true)}
+                        className={`px-5 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                          showBefore 
+                            ? 'bg-[#FF9A00] text-white' 
+                            : 'bg-white/20 text-white/70'
+                        }`}
+                      >
+                        Before
+                      </button>
+                      <button
+                        onClick={() => setShowBefore(false)}
+                        className={`px-5 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                          !showBefore 
+                            ? 'bg-[#FF9A00] text-white' 
+                            : 'bg-white/20 text-white/70'
+                        }`}
+                      >
+                        After
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Video Preview Mode */}
+                {viewMode === 'video' && (
+                  <div className="relative w-full h-full">
+                    {/* Before Image */}
+                    <div className="absolute inset-0 w-full h-full z-10">
+                      <img 
+                        src={carouselImages[currentIndex].before} 
+                        className="w-full h-full object-cover" 
+                        alt="Before" 
+                      />
+                    </div>
+
+                    {/* Video */}
+                    <div className="absolute inset-0 w-full h-full z-20">
+                      <video
+                        src={carouselImages[currentIndex].video}
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Tabs - Below Image */}
+              <div className="flex justify-center gap-2 bg-black/70 backdrop-blur-md px-2 py-1.5 rounded-full mt-4 mb-2">
+                <button
+                  onClick={() => {
+                    setViewMode('photo');
+                    setShowBefore(true);
+                  }}
+                  className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'photo'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Photo Preview
+                </button>
+                <button
+                  onClick={() => setViewMode('video')}
+                  className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'video'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Video Preview
+                </button>
               </div>
             </div>
 

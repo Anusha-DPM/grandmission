@@ -6,6 +6,7 @@ export const PreviewDreamHero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [sliderPos, setSliderPos] = useState(50);
   const [showBefore, setShowBefore] = useState(true);
+  const [viewMode, setViewMode] = useState<'photo' | 'video'>('photo');
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,16 +29,16 @@ export const PreviewDreamHero: React.FC = () => {
     };
   }, [isMobile]);
 
-  // Auto-slider effect for mobile
+  // Auto-slider effect for mobile (only in photo mode)
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || viewMode !== 'photo') return;
     
     const interval = setInterval(() => {
       setShowBefore((prev) => !prev);
     }, 3000); // Switch every 3 seconds
 
     return () => clearInterval(interval);
-  }, [isMobile]);
+  }, [isMobile, viewMode]);
 
   const handleSliderMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!containerRef.current) return;
@@ -133,61 +134,116 @@ export const PreviewDreamHero: React.FC = () => {
 
           {/* Single Image Preview */}
           <div className="w-full max-w-3xl md:max-w-3xl mx-auto mb-6 md:mb-12 relative group">
-            {/* Mobile: Before/After Toggle Slider */}
+            {/* Mobile: Photo/Video Preview with Before/After */}
             <div className="md:hidden relative w-[calc(100%+0.5rem)] -mx-0.5 md:mx-0 overflow-hidden bg-black rounded-lg md:rounded-2xl shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)]">
               <div className="relative w-full h-[calc(100vh-280px)] overflow-hidden bg-black">
-                {/* Image Container with Transition */}
-                <div className="relative w-full h-full">
-                  {/* Before Image */}
-                  <div 
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 flex items-center justify-center ${
-                      showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                    }`}
-                  >
-                    <img 
-                      src="/images/before-mobile view.jpg" 
-                      className="w-full h-full object-cover" 
-                      alt="Before" 
-                    />
-                  </div>
+                {/* Photo Preview Mode */}
+                {viewMode === 'photo' && (
+                  <div className="relative w-full h-full">
+                    {/* Before Image */}
+                    <div 
+                      className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+                        showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                      }`}
+                    >
+                      <img 
+                        src="/images/before-mobile view.jpg" 
+                        className="w-full h-full object-cover" 
+                        alt="Before" 
+                      />
+                    </div>
 
-                  {/* After Image */}
-                  <div 
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-500 flex items-center justify-center ${
-                      !showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                    }`}
-                  >
-                    <img 
-                      src="/images/after-mobile view.png" 
-                      className="w-full h-full object-cover" 
-                      alt="After" 
-                    />
-                  </div>
-                </div>
+                    {/* After Image */}
+                    <div 
+                      className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+                        !showBefore ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                      }`}
+                    >
+                      <img 
+                        src="/images/after-mobile view.png" 
+                        className="w-full h-full object-cover" 
+                        alt="After" 
+                      />
+                    </div>
 
-                {/* Toggle Buttons */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2 bg-black/60 backdrop-blur-sm px-2 py-2 rounded-full">
-                  <button
-                    onClick={() => setShowBefore(true)}
-                    className={`px-4 py-2 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
-                      showBefore 
-                        ? 'bg-[#FF9A00] text-white' 
-                        : 'bg-white/20 text-white/70 hover:bg-white/30'
-                    }`}
-                  >
-                    Before
-                  </button>
-                  <button
-                    onClick={() => setShowBefore(false)}
-                    className={`px-4 py-2 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
-                      !showBefore 
-                        ? 'bg-[#FF9A00] text-white' 
-                        : 'bg-white/20 text-white/70 hover:bg-white/30'
-                    }`}
-                  >
-                    After
-                  </button>
-                </div>
+                    {/* Before/After Toggle Buttons */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-2 bg-black/70 backdrop-blur-md px-3 py-2.5 rounded-full">
+                      <button
+                        onClick={() => setShowBefore(true)}
+                        className={`px-5 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                          showBefore 
+                            ? 'bg-[#FF9A00] text-white' 
+                            : 'bg-white/20 text-white/70'
+                        }`}
+                      >
+                        Before
+                      </button>
+                      <button
+                        onClick={() => setShowBefore(false)}
+                        className={`px-5 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                          !showBefore 
+                            ? 'bg-[#FF9A00] text-white' 
+                            : 'bg-white/20 text-white/70'
+                        }`}
+                      >
+                        After
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Video Preview Mode */}
+                {viewMode === 'video' && (
+                  <div className="relative w-full h-full">
+                    {/* Before Image */}
+                    <div className="absolute inset-0 w-full h-full z-10">
+                      <img 
+                        src="/images/before-mobile view.jpg" 
+                        className="w-full h-full object-cover" 
+                        alt="Before" 
+                      />
+                    </div>
+
+                    {/* Video */}
+                    <div className="absolute inset-0 w-full h-full z-20">
+                      <video
+                        src="/images/first.mp4"
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Tabs - Below Image */}
+              <div className="flex justify-center gap-2 bg-black/70 backdrop-blur-md px-2 py-1.5 rounded-full mt-4 mb-2">
+                <button
+                  onClick={() => {
+                    setViewMode('photo');
+                    setShowBefore(true);
+                  }}
+                  className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'photo'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Photo Preview
+                </button>
+                <button
+                  onClick={() => setViewMode('video')}
+                  className={`px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'video'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Video Preview
+                </button>
               </div>
             </div>
 
