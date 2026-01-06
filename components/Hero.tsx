@@ -23,6 +23,7 @@ export const Hero: React.FC = () => {
     <>
       <style>{`
         #evaluation-form iframe {
+          height: 750px !important;
           overflow: hidden !important;
         }
         #evaluation-form iframe::-webkit-scrollbar {
@@ -50,6 +51,7 @@ export const Hero: React.FC = () => {
           height: 0 !important;
         }
         #inline-wlgA39lNyyz2pOEeAE0H {
+          height: 750px !important;
           overflow: hidden !important;
         }
         #inline-wlgA39lNyyz2pOEeAE0H::-webkit-scrollbar {
@@ -72,21 +74,15 @@ export const Hero: React.FC = () => {
             NOW.
           </h1>
           
-          <p className="text-xl text-slate-400 mb-12 leading-relaxed font-bold uppercase tracking-tight">
-            Clinical precision meets artificial intelligence. Upload your photo for a high-fidelity visualization of your aesthetic potential.
-          </p>
-
-          <div className="space-y-5 mb-16 border-l border-white/10 pl-8">
-            {[
-              "ZERO COMMITMENT",
-              "INSTANT VISUALIZATION",
-              "CLINICAL OVERSIGHT"
-            ].map((bullet, idx) => (
-              <div key={idx} className="flex items-center gap-4">
-                <div className="w-2 h-2 bg-blue-500"></div>
-                <span className="text-white font-black text-xs tracking-[0.4em] uppercase">{bullet}</span>
-              </div>
-            ))}
+          <div className="mb-12">
+            <h2 className="text-white mb-6 font-bold" style={{ fontSize: '22px' }}>
+              DISCLAIMER:
+            </h2>
+            <div className="text-slate-300 leading-relaxed" style={{ fontSize: '12px' }}>
+              <p>
+                Smile previews are digital simulations created to help you visualize potential outcomes of treatment. These images are for illustrative purposes only and are not a guarantee of specific results. Actual treatment results may vary based on individual oral health, anatomy, treatment plan, compliance, and clinical factors determined during your dental evaluation. Final outcomes depend on the type of treatment provided and how your smile responds over time. Your dentist will review all treatment options with you and discuss what results may be realistically expected for your unique smile.
+              </p>
+            </div>
           </div>
 
           <div className="flex items-center gap-6 opacity-20">
@@ -98,8 +94,8 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* RIGHT PANEL - GHL Form */}
-      <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center p-6 md:p-8 lg:p-20 overflow-hidden">
-        <div className="w-full max-w-xl">
+      <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center overflow-hidden p-6 md:p-12 lg:p-16">
+        <div className="w-full" style={{ maxWidth: '45rem' }}>
           <div className="mb-8 md:mb-14">
             <h2 className="text-4xl md:text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">
               <span className="inline-block">Smile</span>
@@ -108,12 +104,14 @@ export const Hero: React.FC = () => {
             <div className="w-12 h-1.5 bg-[#FF9A00]"></div>
           </div>
           
-          <div className="h-full min-h-[750px] overflow-hidden" style={{ overflow: 'hidden' }}>
+          <div className="h-full min-h-[500px] md:min-h-[600px] lg:min-h-[750px] overflow-hidden" style={{ overflow: 'hidden' }}>
             <iframe
               src="https://link.digitalpresencematters.com/widget/form/wlgA39lNyyz2pOEeAE0H"
+              className="w-full border-none rounded"
               style={{ 
                 width: '100%', 
-                height: '100%', 
+                height: '750px', 
+                minHeight: '500px',
                 border: 'none', 
                 borderRadius: '4px',
                 overflow: 'hidden',
@@ -129,11 +127,11 @@ export const Hero: React.FC = () => {
               data-activation-value=""
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
-              data-form-name=" G-ads All-Inclusive Invisalign Deal Just at $3279 in Feather Sound Smiles,Saint Petersburg, FL!"
-              data-height="750"
+              data-form-name=" grand mission smile evaluation form"
+              data-height="565"
               data-layout-iframe-id="inline-wlgA39lNyyz2pOEeAE0H"
               data-form-id="wlgA39lNyyz2pOEeAE0H"
-              title=" G-ads All-Inclusive Invisalign Deal Just at $3279 in Feather Sound Smiles,Saint Petersburg, FL!"
+              title=" grand mission smile evaluation form"
             >
             </iframe>
           </div>
