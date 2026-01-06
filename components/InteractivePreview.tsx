@@ -19,18 +19,18 @@ export const InteractivePreview: React.FC = () => {
     },
     {
       id: 3,
-      iframe: 'https://smile4d.ai/preview/6ecb436e-e0ad-4529-808e-363b5191062d',
+      iframe: 'https://smile4d.ai/preview/6d230df1-812c-49f0-a378-a7ffb92b26fe',
       title: 'ESTHETIC BONDING',
       description: 'Composite rejuvenation for enamel attrition.'
     }
   ];
 
   return (
-    <section className="w-full bg-[#F2F2F2] py-12 md:py-20 lg:py-32">
+    <section className="w-full bg-[#F2F2F2] py-6 md:py-20 lg:py-32 overflow-hidden md:overflow-visible">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="mb-8 md:mb-12 flex flex-col md:flex-row items-center md:items-end justify-center md:justify-between gap-4 md:gap-6 text-center md:text-left">
+        <div className="mb-4 md:mb-12 flex flex-col md:flex-row items-center md:items-end justify-center md:justify-between gap-2 md:gap-6 text-center md:text-left">
           <div>
-            <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-[#0A0E1A] tracking-tighter uppercase leading-[0.9]">
+            <h2 className="text-xl md:text-3xl lg:text-5xl font-extrabold text-[#0A0E1A] tracking-tighter uppercase leading-[0.9]">
               Real <span className="text-[#3B86F2]">Faces.</span> Real <span className="text-[#3B86F2]">Smile Previews.</span> Real <span className="text-[#3B86F2]">Confidence.</span>
             </h2>
           </div>
@@ -38,8 +38,8 @@ export const InteractivePreview: React.FC = () => {
 
         <div className="relative group">
           {/* Architectural Framing */}
-          <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-[#2F74B5]"></div>
-          <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-[#FF9A00]"></div>
+          <div className="hidden md:block absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-[#2F74B5]"></div>
+          <div className="hidden md:block absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-[#FF9A00]"></div>
           
           {/* Image Carousel */}
           <div className="relative w-full overflow-hidden bg-black shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)]">
@@ -49,7 +49,7 @@ export const InteractivePreview: React.FC = () => {
             >
               {carouselImages.map((item, index) => (
                 <div key={item.id} className="min-w-full relative">
-                  <div className="relative w-full h-[calc(100vh-220px)] md:aspect-[21/9] lg:h-[700px] bg-black md:min-h-[500px]">
+                  <div className="relative w-full h-[60vh] md:aspect-[21/9] lg:h-[700px] bg-black md:min-h-[500px]">
                     <iframe 
                       src={item.iframe}
                       className="w-full h-full border-none"
