@@ -1,16 +1,16 @@
 
 import React from 'react';
-import { Navbar } from './components/Navbar';
-import { PreviewDreamHero } from './components/PreviewDreamHero';
-import { Hero } from './components/Hero';
-import { InteractivePreview } from './components/InteractivePreview';
-import { Philosophy } from './components/Philosophy';
-import { BeforeAfter } from './components/BeforeAfter';
-import { SmileGoals } from './components/SmileGoals';
-import { Features } from './components/Features';
-import { Process } from './components/Process';
-import { Disclaimer } from './components/Disclaimer';
-import { Footer } from './components/Footer';
+import { Navbar } from './components/Navbar.tsx';
+import { PreviewDreamHero } from './components/PreviewDreamHero.tsx';
+import { Hero } from './components/Hero.tsx';
+import { InteractivePreview } from './components/InteractivePreview.tsx';
+import { Philosophy } from './components/Philosophy.tsx';
+import { BeforeAfter } from './components/BeforeAfter.tsx';
+import { SmileGoals } from './components/SmileGoals.tsx';
+import { Features } from './components/Features.tsx';
+import { Process } from './components/Process.tsx';
+import { Disclaimer } from './components/Disclaimer.tsx';
+import { Footer } from './components/Footer.tsx';
 
 function App() {
   return (
