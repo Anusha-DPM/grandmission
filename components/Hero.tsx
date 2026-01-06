@@ -62,20 +62,20 @@ export const Hero: React.FC = () => {
       `}</style>
       <section className="flex flex-col lg:flex-row min-h-[calc(100vh-88px)]">
       {/* LEFT PANEL */}
-      <div className="lg:w-[45%] bg-[#0A0E1A] p-10 lg:p-24 flex flex-col justify-center text-white relative">
-        <div className="relative z-10 max-w-lg">
-          <div className="inline-block px-4 py-1.5 border border-white/20 mb-10">
+      <div className="lg:w-[45%] bg-[#0A0E1A] p-6 md:p-10 lg:p-24 flex flex-col justify-center text-white relative text-center lg:text-left">
+        <div className="relative z-10 max-w-lg mx-auto lg:mx-0">
+          <div className="inline-block px-4 py-1.5 border border-white/20 mb-6 md:mb-10">
             <span className="text-xs font-black tracking-[0.3em] uppercase text-blue-400">AI SMILE ARCHITECTURE</span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-extrabold mb-10 leading-[0.95] tracking-tighter">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-10 leading-[0.95] tracking-tighter">
             PREVIEW <br />
             <span className="text-blue-500">THE DREAM</span> <br />
             NOW.
           </h1>
           
-          <div className="mb-12">
-            <h2 className="text-white mb-6 font-bold" style={{ fontSize: '22px' }}>
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-white mb-4 md:mb-6 font-bold" style={{ fontSize: '22px' }}>
               DISCLAIMER:
             </h2>
             <div className="text-slate-300 leading-relaxed" style={{ fontSize: '12px' }}>
@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-6 opacity-20">
+          <div className="flex items-center justify-center lg:justify-start gap-6 opacity-20">
             <div className="h-px flex-grow bg-white"></div>
             <ShieldCheck className="w-6 h-6" />
             <div className="h-px flex-grow bg-white"></div>
@@ -96,12 +96,12 @@ export const Hero: React.FC = () => {
       {/* RIGHT PANEL - GHL Form */}
       <div id="evaluation-form" className="lg:w-[55%] bg-white flex items-center justify-center overflow-hidden p-6 md:p-12 lg:p-16">
         <div className="w-full" style={{ maxWidth: '45rem' }}>
-          <div className="mb-8 md:mb-14">
+          <div className="mb-8 md:mb-14 text-center lg:text-left">
             <h2 className="text-4xl md:text-4xl font-extrabold text-[#0A0E1A] mb-4 tracking-tighter uppercase">
               <span className="inline-block">Smile</span>
               <span className="inline-block ml-2 md:ml-4">Evaluation</span>
             </h2>
-            <div className="w-12 h-1.5 bg-[#FF9A00]"></div>
+            <div className="w-12 h-1.5 bg-[#FF9A00] mx-auto lg:mx-0"></div>
           </div>
           
           <div className="h-full min-h-[500px] md:min-h-[600px] lg:min-h-[750px] overflow-hidden" style={{ overflow: 'hidden' }}>

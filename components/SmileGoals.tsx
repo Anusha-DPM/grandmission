@@ -36,15 +36,15 @@ export const SmileGoals: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-white border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+    <section className="py-12 md:py-24 bg-white border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-center md:justify-between mb-8 md:mb-16 gap-4 md:gap-8 text-center md:text-left">
           <div className="max-w-2xl">
-            <h2 className="text-5xl lg:text-6xl font-extrabold text-[#0A0E1A] mb-6 tracking-tighter leading-[1]">
+            <h2 className="text-5xl lg:text-6xl font-extrabold text-[#0A0E1A] mb-4 md:mb-6 tracking-tighter leading-[1]">
               HOW IT <br />
               <span className="text-[#0A0E1A]">WORKS.</span>
             </h2>
-            <div className="w-16 h-1.5 bg-[#FF9A00]"></div>
+            <div className="w-16 h-1.5 bg-[#FF9A00] mx-auto md:mx-0"></div>
           </div>
         </div>
 
@@ -77,11 +77,11 @@ export const SmileGoals: React.FC = () => {
               </div>
 
               {/* Content Box */}
-              <div className="p-12 flex flex-col border-t border-slate-100 flex-grow">
-                <h3 className="text-3xl font-black text-[#0A0E1A] mb-6 tracking-tighter uppercase">
+              <div className="p-6 md:p-12 flex flex-col border-t border-slate-100 flex-grow text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-black text-[#0A0E1A] mb-4 md:mb-6 tracking-tighter uppercase">
                   {goal.title}
                 </h3>
-                <p className="text-slate-400 font-bold text-sm uppercase tracking-wider leading-relaxed mb-12 max-w-[95%]">
+                <p className="text-slate-400 font-bold text-sm uppercase tracking-wider leading-relaxed mb-6 md:mb-12 max-w-[95%] mx-auto md:mx-0">
                   {goal.description}
                 </p>
               </div>

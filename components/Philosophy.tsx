@@ -11,20 +11,20 @@ export const Philosophy: React.FC = () => {
   };
 
   return (
-    <section className="py-32 bg-[#F7F9F7] relative overflow-hidden border-y border-slate-100">
+    <section className="py-16 md:py-32 bg-[#F7F9F7] relative overflow-hidden border-y border-slate-100">
       {/* Structural Watermark */}
       <div className="absolute top-0 right-0 p-20 opacity-[0.03] select-none pointer-events-none">
         <span className="text-[20rem] font-black tracking-tighter leading-none text-[#3B86F2]">SAGE</span>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
-          <div className="lg:w-1/3">
-            <div className="sticky top-40">
-              <div className="flex items-center gap-4 mb-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-16 items-center lg:items-start text-center lg:text-left">
+          <div className="lg:w-1/3 w-full">
+            <div className="lg:sticky lg:top-40">
+              <div className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-8">
                 <span className="w-12 h-1 bg-[#2F74B5]"></span>
               </div>
-              <p className="text-[#3B86F2] font-bold uppercase tracking-widest leading-relaxed mb-8" style={{ fontSize: '20px' }}>
+              <p className="text-[#3B86F2] font-bold uppercase tracking-widest leading-relaxed mb-4 md:mb-8 px-2 md:px-0" style={{ fontSize: '20px' }}>
                 MOST PEOPLE DON'T AVOID TREATMENT. THEY AVOID UNCERTAINITY.
               </p>
               <button
@@ -37,8 +37,8 @@ export const Philosophy: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:w-2/3 space-y-12">
-            <div className="bg-white p-12 lg:p-16 border-l-4 border-[#2F74B5] shadow-2xl shadow-slate-200/50">
+          <div className="lg:w-2/3 space-y-12 w-full">
+            <div className="bg-white p-12 lg:p-16 border-l-4 border-[#2F74B5] shadow-2xl shadow-slate-200/50 text-center lg:text-left">
               <div className="space-y-6 text-slate-600 leading-snug" style={{ fontSize: '16px' }}>
                 <p className="font-medium">
                   Choosing dental treatment can feel overwhelming when you can't see the outcome.

@@ -28,7 +28,7 @@ export const InteractivePreview: React.FC = () => {
   return (
     <section className="w-full bg-[#F2F2F2] py-12 md:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="mb-8 md:mb-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4 md:gap-6">
+        <div className="mb-8 md:mb-12 flex flex-col md:flex-row items-center md:items-end justify-center md:justify-between gap-4 md:gap-6 text-center md:text-left">
           <div>
             <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-[#0A0E1A] tracking-tighter uppercase leading-[0.9]">
               Real <span className="text-[#3B86F2]">Faces.</span> Real <span className="text-[#3B86F2]">Smile Previews.</span> Real <span className="text-[#3B86F2]">Confidence.</span>
@@ -49,7 +49,7 @@ export const InteractivePreview: React.FC = () => {
             >
               {carouselImages.map((item, index) => (
                 <div key={item.id} className="min-w-full relative">
-                  <div className="relative w-full aspect-[16/10] md:aspect-[21/9] lg:h-[700px] bg-black min-h-[400px] md:min-h-[500px]">
+                  <div className="relative w-full h-[calc(100vh-220px)] md:aspect-[21/9] lg:h-[700px] bg-black md:min-h-[500px]">
                     <iframe 
                       src={item.iframe}
                       className="w-full h-full border-none"
