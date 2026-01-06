@@ -1,6 +1,10 @@
 
 import React from 'react';
+<<<<<<< HEAD
 import { ArrowUp, MapPin, Phone } from 'lucide-react';
+=======
+import { ShieldCheck, ArrowUp, MapPin, Phone, Mail } from 'lucide-react';
+>>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -14,6 +18,7 @@ export const Footer: React.FC = () => {
           
           {/* Brand Column */}
           <div className="flex flex-col gap-12">
+<<<<<<< HEAD
             <div className="flex items-center">
               <img 
                 src="/images/grand_mission-logo footer.webp" 
@@ -21,6 +26,20 @@ export const Footer: React.FC = () => {
                 className="h-10 w-auto object-contain"
               />
             </div>
+=======
+            <div className="flex items-center gap-5">
+              <div className="bg-white p-2.5 rounded-none shrink-0">
+                <ShieldCheck className="h-7 w-7 text-[#0A0E1A]" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-2xl font-extrabold tracking-tighter text-white uppercase">Grand Mission</span>
+                <span className="text-xs font-black text-slate-500 tracking-[0.3em]">DENTISTRY</span>
+              </div>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed font-bold uppercase tracking-[0.2em] opacity-70 max-w-[320px]">
+              A nexus of clinical excellence and aesthetic precision. Engineering the future of personalized dental care in Richmond, TX.
+            </p>
+>>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
           </div>
           
           {/* Contact Column */}
@@ -45,6 +64,15 @@ export const Footer: React.FC = () => {
                   (281) 789-8836
                 </a>
               </div>
+<<<<<<< HEAD
+=======
+              <div className="flex gap-5 items-center">
+                <Mail className="w-5 h-5 text-slate-600 shrink-0" />
+                <a href="mailto:office@grandmissiondentistry.com" className="text-sm text-white font-black uppercase tracking-[0.15em] hover:text-[#FF9A00] transition-colors">
+                  OFFICE@GRANDMISSIONDENTISTRY.COM
+                </a>
+              </div>
+>>>>>>> 01d561a7df342e8f83d8e6b88b09fc334b62d102
             </div>
           </div>
 
