@@ -111,10 +111,10 @@ export const Hero: React.FC = () => {
       {/* RIGHT PANEL - Form */}
       <div id="evaluation-form" className="lg:w-[55%] bg-white p-6 pb-12 md:p-12 lg:p-16">
         <div className="w-full" style={{ maxWidth: '45rem', margin: '0 auto' }}>
-          {/* SMILE EVALUATION Heading */}
+          {/* Grand Mission Smile Studio Heading */}
           <div className="mb-8 md:mb-14 text-center lg:text-left">
             <h2 
-              className="text-4xl md:text-4xl font-extrabold mb-4 tracking-tighter uppercase" 
+              className="text-4xl md:text-4xl font-extrabold mb-4 tracking-tighter" 
               style={{ 
                 fontFamily: 'Sansation, sans-serif', 
                 fontWeight: 'bold', 
@@ -122,20 +122,11 @@ export const Hero: React.FC = () => {
                 position: 'relative'
               }}
             >
-              <span className="inline-block relative" style={{ paddingBottom: '12px' }}>
-                SMILE
-                <div 
-                  className="absolute bg-[#FF9A00]" 
-                  style={{ 
-                    width: '64px', 
-                    left: '0', 
-                    bottom: '4px',
-                    height: '6px'
-                  }}
-                ></div>
-              </span>
-              <span className="inline-block ml-2 md:ml-4">EVALUATION</span>
+              Grand Mission Smile Studio
             </h2>
+            <p className="text-base md:text-lg text-slate-600 font-medium leading-relaxed">
+              Begin your journey with a complimentary smile design. Please complete the form below.
+            </p>
           </div>
 
           {/* Form Iframe */}

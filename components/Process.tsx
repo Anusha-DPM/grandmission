@@ -81,7 +81,7 @@ export const Process: React.FC = () => {
             onClick={scrollToForm}
             className="group relative flex items-center justify-center gap-10 bg-[#FF9A00] hover:bg-white text-white hover:text-[#0A0E1A] px-20 py-10 rounded-none font-black text-sm uppercase tracking-[0.4em] transition-all shadow-2xl shadow-orange-500/20"
           >
-            Start Sequence
+            Get My Free Smile Preview
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
           </button>
         </div>

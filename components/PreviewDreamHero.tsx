@@ -267,7 +267,7 @@ export const PreviewDreamHero: React.FC = () => {
             href="#evaluation-form"
             className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white font-black text-sm uppercase tracking-[0.3em] transition-all rounded-none"
           >
-            Generate my Smile Preview
+            Get My Free Smile Preview
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </a>
 

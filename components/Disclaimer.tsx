@@ -87,7 +87,7 @@ export const Disclaimer: React.FC = () => {
             onClick={scrollToForm}
             className="group relative flex items-center justify-center gap-10 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white px-16 py-8 rounded-none font-black text-xs uppercase tracking-[0.3em] transition-all shadow-xl shadow-orange-500/10"
           >
-            Schedule Diagnostic
+            Get My Free Smile Preview
             <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             
             <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t border-l border-[#FF9A00] opacity-0 group-hover:opacity-100 transition-opacity"></div>

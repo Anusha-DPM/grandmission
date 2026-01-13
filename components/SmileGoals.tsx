@@ -8,14 +8,14 @@ const goals = [
       title: "Upload Your Photo",
     image: "/images/Step-1.jpeg",
     description: "A clear face photo showing your smile is all we need.",
-      cta: "Generate my Smile Preview"
+      cta: "Get My Free Smile Preview"
   },
   {
     tag: "STEP 02",
       title: "We Design Your Smile Preview",
     image: "/images/Step-2.jpeg",
     description: "Our dental team uses advanced software to generate a personalized smile simulation.",
-      cta: "Generate my Smile Preview"
+      cta: "Get My Free Smile Preview"
   },
   {
     tag: "STEP 03",
@@ -25,7 +25,7 @@ const goals = [
     beforeImage: "/images/Before-SD.jpeg",
     afterImage: "/images/After-SD.jpeg",
     description: "You'll get an image showing how your smile can look after treatment.",
-      cta: "Generate my Smile Preview"
+      cta: "Get My Free Smile Preview"
   }
 ];
 

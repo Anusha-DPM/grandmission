@@ -31,7 +31,7 @@ export const Philosophy: React.FC = () => {
                 onClick={scrollToForm}
                 className="group relative w-full flex items-center justify-center gap-4 px-6 py-6 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white font-black text-sm uppercase tracking-[0.3em] transition-all rounded-none"
               >
-                <span className="whitespace-nowrap">Generate Preview</span>
+                <span className="whitespace-nowrap">Get My Free Smile Preview</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform shrink-0" />
               </button>
             </div>

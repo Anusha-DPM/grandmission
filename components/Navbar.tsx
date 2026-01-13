@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
                 onClick={scrollToForm}
                 className="bg-[#FF9A00] text-white px-12 py-6 rounded-none text-xs font-black uppercase tracking-[0.3em] hover:bg-[#0A0E1A] transition-all active:translate-y-[1px] shadow-lg shadow-orange-500/10"
               >
-                Generate my Smile Preview
+                Get My Free Smile Preview
               </button>
             </div>
           </div>
@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
                 onClick={scrollToForm}
                 className="bg-[#FF9A00] text-white px-6 py-4 rounded-none text-xs font-black uppercase tracking-[0.3em] hover:bg-[#0A0E1A] transition-all text-left"
               >
-                Generate my Smile Preview
+                Get My Free Smile Preview
               </button>
             </div>
           </div>
