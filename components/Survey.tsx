@@ -23,7 +23,7 @@ export const Survey: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       {/* Combined Section with Content and Survey Form */}
-      <section className="relative pt-20 md:pt-32 pb-8 md:pb-12 flex items-center justify-center overflow-hidden min-h-screen" style={{ backgroundColor: '#0a0e1a' }}>
+      <section className="relative pt-4 pb-4 flex items-center justify-center overflow-hidden min-h-screen" style={{ backgroundColor: '#0a0e1a' }}>
         {/* Enhanced Animated Grid Overlay */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0" style={{
@@ -58,9 +58,9 @@ export const Survey: React.FC = () => {
 
         {/* Main Content - Centered Layout */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full">
-          <div className="flex flex-col items-center justify-center text-center py-4 md:py-8">
+          <div className="flex flex-col items-center justify-center text-center py-2">
             {/* Enhanced Main Heading with Staggered Animation */}
-            <div className="mb-4 md:mb-12">
+            <div className="mb-2">
               <h1 className="font-extrabold leading-[0.9] tracking-tighter text-2xl md:text-5xl lg:text-6xl" style={{ fontSize: 'clamp(24px, 5vw, 60px)' }}>
                 <span className="block text-white animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                   Your New Smile
