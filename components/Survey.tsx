@@ -56,37 +56,32 @@ export const Survey: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#FF9A00]/20 rounded-full blur-[100px] transition-all duration-1000 ease-out"></div>
         <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-blue-400/10 rounded-full blur-[80px] animate-pulse"></div>
 
-        {/* Main Content - Two Column Layout */}
+        {/* Main Content - Centered Layout */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
-            {/* Left Side - Text Content */}
-            <div className="flex-1 w-full lg:w-auto">
-              <div className="text-center lg:text-left">
-                <h1 className="font-extrabold leading-[0.9] tracking-tighter text-2xl md:text-4xl lg:text-5xl xl:text-6xl" style={{ fontSize: 'clamp(24px, 4vw, 60px)' }}>
-                  <span className="block text-white animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                    Your New Smile
+          <div className="flex flex-col items-center justify-center text-center py-4 md:py-8">
+            {/* Enhanced Main Heading with Staggered Animation */}
+            <div className="mb-4 md:mb-12">
+              <h1 className="font-extrabold leading-[0.9] tracking-tighter text-2xl md:text-5xl lg:text-6xl" style={{ fontSize: 'clamp(24px, 5vw, 60px)' }}>
+                <span className="block text-white animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                  Your New Smile
+                </span>
+                <span 
+                  className="block animate-fade-in-up relative"
+                  style={{ animationDelay: '0.2s' }}
+                >
+                  <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                    Revealed Before
                   </span>
-                  <span 
-                    className="block animate-fade-in-up relative"
-                    style={{ animationDelay: '0.2s' }}
-                  >
-                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                      Revealed Before
-                    </span>
-                    <span className="inline-block" style={{ width: '0.4em' }}> </span>
-                    <span className="inline-block text-white">
-                      Treatment Begins
-                    </span>
+                  <span className="inline-block" style={{ width: '0.4em' }}> </span>
+                  <span className="inline-block text-white">
+                    Treatment Begins
                   </span>
-                </h1>
-                <p className="text-xs md:text-sm lg:text-base text-slate-300 font-bold leading-relaxed mt-4 md:mt-6 max-w-xl lg:max-w-none">
-                  Upload a simple photo and see a realistic preview of how your smile can look after treatment. NO guesswork, NO pressure.
-                </p>
-              </div>
+                </span>
+              </h1>
             </div>
 
-            {/* Right Side - Survey Form */}
-            <div className="flex-1 w-full lg:w-auto lg:min-w-[500px]">
+            {/* Survey Form - Centered */}
+            <div className="w-full max-w-2xl">
               <div className="w-full min-h-[600px]">
                 <iframe 
                   src="https://link.digitalpresencematters.com/widget/survey/KyFStOzMBB91lggpojSW" 
