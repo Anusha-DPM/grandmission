@@ -7,20 +7,6 @@ export const InteractivePreview: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [viewMode, setViewMode] = useState<'photo' | 'video'>('photo');
 
-  // Helper function to generate absolute URLs with full domain structure
-  // Example: https://grandmission-eta.vercel.app/images/Before-SD.jpeg
-  // This ensures clean, readable URLs instead of Google Cloud Storage signed URLs
-  const getImageUrl = (path: string): string => {
-    if (typeof window !== 'undefined') {
-      // Use current origin to create clean absolute URLs
-      // This prevents any redirects to Google Cloud Storage signed URLs
-      const cleanPath = path.startsWith('/') ? path : `/${path}`;
-      return `${window.location.origin}${cleanPath}`;
-    }
-    // Fallback for SSR or when window is not available
-    return path;
-  };
-
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -44,34 +30,32 @@ export const InteractivePreview: React.FC = () => {
     return () => clearInterval(interval);
   }, [isMobile, currentIndex, viewMode]);
 
-  // Using clean, static public URLs for images with full domain structure
-  // These URLs will be readable when images are opened in a new tab
-  // Example: https://grandmission-eta.vercel.app/images/before-mobile view.jpg
+  // Using direct paths from public folder
   const carouselImages = useMemo(() => [
     {
       id: 1,
       iframe: 'https://smile4d.ai/preview/eaedb500-d22f-4014-bbbf-1f6cbc90c348',
-      before: getImageUrl('/images/before-mobile view.JPG'), // Full absolute URL
-      after: getImageUrl('/images/after-mobile view.png'), // Full absolute URL
-      video: getImageUrl('/videos/40e9e18b-71e3-436c-8b02-b9850aeb4e3a.MP4'),
+      before: '/images/before-mobile view.jpg',
+      after: '/images/after-mobile view.png',
+      video: '/videos/40e9e18b-71e3-436c-8b02-b9850aeb4e3a.mp4',
       title: 'VENEER ARCHITECTURE',
       description: 'Full arch reconstruction using E-max porcelain.'
     },
     {
       id: 2,
       iframe: 'https://smile4d.ai/preview/b7d8a96c-ea5c-4a27-8009-a90648d284c2',
-      before: getImageUrl('/images/before2-mobile view.JPG'), // Full absolute URL
-      after: getImageUrl('/images/after2-mobile view.png'), // Full absolute URL
-      video: getImageUrl('/videos/9532e014-414c-4879-8103-4a722445c4cf.MP4'),
+      before: '/images/before2-mobile view.jpg',
+      after: '/images/after2-mobile view.png',
+      video: '/videos/9532e014-414c-4879-8103-4a722445c4cf.mp4',
       title: 'ALIGNER PROTOCOL',
       description: 'Phase 1 orthodontic correction.'
     },
     {
       id: 3,
       iframe: 'https://smile4d.ai/preview/6d230df1-812c-49f0-a378-a7ffb92b26fe',
-      before: getImageUrl('/images/before3-mobile view.JPG'), // Full absolute URL
-      after: getImageUrl('/images/after3-mobile view.png'), // Full absolute URL
-      video: getImageUrl('/videos/04d9fcd5-8aca-413a-977c-e7dcc84f282f.MP4'),
+      before: '/images/before3-mobile view.jpg',
+      after: '/images/after3-mobile view.png',
+      video: '/videos/04d9fcd5-8aca-413a-977c-e7dcc84f282f.mp4',
       title: 'ESTHETIC BONDING',
       description: 'Composite rejuvenation for enamel attrition.'
     }
@@ -209,24 +193,103 @@ export const InteractivePreview: React.FC = () => {
               </div>
             </div>
 
-            {/* Desktop: Iframe Carousel */}
-            <div className="hidden md:block">
+            {/* Desktop: Side-by-Side Before/After Carousel */}
+            <div className="hidden md:block relative w-full max-w-4xl mx-auto overflow-hidden bg-black rounded-2xl shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)] py-12 md:py-16">
               <div 
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {carouselImages.map((item, index) => (
                   <div key={item.id} className="min-w-full relative">
-                    <div className="relative w-full aspect-[21/9] lg:h-[700px] bg-black min-h-[500px]">
-                      <iframe 
-                        src={item.iframe}
-                        className="w-full h-full border-none"
-                        title={item.title}
-                        allow="camera; microphone; clipboard-read; clipboard-write"
-                      />
+                    {/* Labels Above Images */}
+                    <div className="flex mb-4">
+                      <div className="w-1/2 flex justify-center">
+                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">BEFORE</span>
+                      </div>
+                      <div className="w-1/2 flex justify-center">
+                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">AFTER</span>
+                      </div>
+                    </div>
+
+                    <div className="relative w-full aspect-[16/10] lg:h-[500px] bg-black overflow-visible">
+                      {/* Photo Preview Mode - Side by Side */}
+                      {viewMode === 'photo' && (
+                        <div className="relative w-full h-full flex gap-4">
+                          {/* BEFORE Section - Left Side */}
+                          <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
+                            <img 
+                              src={item.before} 
+                              className="w-full h-full object-cover rounded-lg" 
+                              alt="Before" 
+                            />
+                          </div>
+
+                          {/* AFTER Section - Right Side */}
+                          <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
+                            <img 
+                              src={item.after} 
+                              className="w-full h-full object-cover rounded-lg" 
+                              alt="After" 
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Video Preview Mode - Before on Left, Video on Right */}
+                      {viewMode === 'video' && (
+                        <div className="relative w-full h-full flex gap-4">
+                          {/* BEFORE Section - Left Side */}
+                          <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
+                            <img 
+                              src={item.before} 
+                              className="w-full h-full object-cover rounded-lg" 
+                              alt="Before" 
+                            />
+                          </div>
+
+                          {/* AFTER/VIDEO Section - Right Side */}
+                          <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
+                            <video
+                              src={item.video}
+                              className="w-full h-full object-cover rounded-lg"
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Tabs - Below Image */}
+              <div className="flex justify-center gap-3 bg-black/70 backdrop-blur-md px-3 py-2 rounded-full mt-4 mb-4">
+                <button
+                  onClick={() => {
+                    setViewMode('photo');
+                    setShowBefore(true);
+                  }}
+                  className={`px-6 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'photo'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Photo Preview
+                </button>
+                <button
+                  onClick={() => setViewMode('video')}
+                  className={`px-6 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'video'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Video Preview
+                </button>
               </div>
             </div>
 

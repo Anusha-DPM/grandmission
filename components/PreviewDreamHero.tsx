@@ -147,7 +147,7 @@ export const PreviewDreamHero: React.FC = () => {
                       }`}
                     >
                       <img 
-                        src="/images/before-mobile view.JPG" 
+                        src="/images/before-mobile view.jpg" 
                         className="w-full h-full object-cover" 
                         alt="Before" 
                       />
@@ -198,7 +198,7 @@ export const PreviewDreamHero: React.FC = () => {
                     {/* Before Image */}
                     <div className="absolute inset-0 w-full h-full z-10">
                       <img 
-                        src="/images/before-mobile view.JPG" 
+                        src="/images/before-mobile view.jpg" 
                         className="w-full h-full object-cover" 
                         alt="Before" 
                       />
@@ -247,16 +247,96 @@ export const PreviewDreamHero: React.FC = () => {
               </div>
             </div>
 
-            {/* Desktop: Iframe */}
+            {/* Desktop: Side-by-Side Before/After Comparison */}
             <div className="hidden md:block relative w-full overflow-hidden bg-black rounded-2xl shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)]">
               <div className="relative w-full aspect-[21/9] lg:h-[600px] bg-black min-h-[500px] overflow-hidden">
-                <iframe
-                  src="https://smile4d.ai/preview/eaedb500-d22f-4014-bbbf-1f6cbc90c348"
-                  className="w-full h-full border-none"
-                  title="VENEER ARCHITECTURE"
-                  allow="camera; microphone; clipboard-read; clipboard-write"
-                  scrolling="no"
-                />
+                {/* Photo Preview Mode - Side by Side */}
+                {viewMode === 'photo' && (
+                  <div className="relative w-full h-full flex">
+                    {/* BEFORE Section - Left Side */}
+                    <div className="relative w-1/2 h-full overflow-hidden border-r-2 border-white/10">
+                      <div className="absolute top-4 left-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
+                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">BEFORE</span>
+                      </div>
+                      <img 
+                        src="/images/before-mobile view.jpg" 
+                        className="w-full h-full object-cover" 
+                        alt="Before" 
+                      />
+                    </div>
+
+                    {/* AFTER Section - Right Side */}
+                    <div className="relative w-1/2 h-full overflow-hidden">
+                      <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
+                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">AFTER</span>
+                      </div>
+                      <img 
+                        src="/images/after-mobile view.png" 
+                        className="w-full h-full object-cover" 
+                        alt="After" 
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Video Preview Mode - Before on Left, Video on Right */}
+                {viewMode === 'video' && (
+                  <div className="relative w-full h-full flex">
+                    {/* BEFORE Section - Left Side */}
+                    <div className="relative w-1/2 h-full overflow-hidden border-r-2 border-white/10">
+                      <div className="absolute top-4 left-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
+                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">BEFORE</span>
+                      </div>
+                      <img 
+                        src="/images/before-mobile view.jpg" 
+                        className="w-full h-full object-cover" 
+                        alt="Before" 
+                      />
+                    </div>
+
+                    {/* AFTER/VIDEO Section - Right Side */}
+                    <div className="relative w-1/2 h-full overflow-hidden">
+                      <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
+                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">AFTER</span>
+                      </div>
+                      <video
+                        src="/videos/40e9e18b-71e3-436c-8b02-b9850aeb4e3a.mp4"
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Tabs - Below Image */}
+              <div className="flex justify-center gap-3 bg-black/70 backdrop-blur-md px-3 py-2 rounded-full mt-6 mb-4">
+                <button
+                  onClick={() => {
+                    setViewMode('photo');
+                    setShowBefore(true);
+                  }}
+                  className={`px-6 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'photo'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Photo Preview
+                </button>
+                <button
+                  onClick={() => setViewMode('video')}
+                  className={`px-6 py-2.5 rounded-full text-xs font-black tracking-[0.2em] uppercase transition-all ${
+                    viewMode === 'video'
+                      ? 'bg-[#FF9A00] text-white'
+                      : 'bg-white/20 text-white/70'
+                  }`}
+                >
+                  Video Preview
+                </button>
               </div>
             </div>
           </div>
