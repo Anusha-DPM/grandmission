@@ -106,10 +106,10 @@ export const PreviewDreamHero: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full">
-        <div className="flex flex-col items-center justify-center text-center py-4 md:py-8">
+        <div className="flex flex-col items-center justify-center text-center py-4 md:py-6">
           
           {/* Enhanced Main Heading with Staggered Animation */}
-          <div className="mb-4 md:mb-12">
+          <div className="mb-4 md:mb-6">
             <h1 className="font-extrabold leading-[0.9] tracking-tighter text-2xl md:text-5xl lg:text-6xl" style={{ fontSize: 'clamp(24px, 5vw, 60px)' }}>
               <span className="block text-white animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                 Your New Smile
@@ -133,7 +133,7 @@ export const PreviewDreamHero: React.FC = () => {
           </div>
 
           {/* Single Image Preview */}
-          <div className="w-full max-w-3xl md:max-w-3xl mx-auto mb-6 md:mb-12 relative group">
+          <div className="w-full max-w-3xl md:max-w-3xl mx-auto mb-4 md:mb-6 relative group">
             {/* Mobile: Photo/Video Preview with Before/After */}
             <div className="md:hidden relative w-[calc(100%+0.5rem)] -mx-0.5 md:mx-0 overflow-hidden bg-black rounded-lg md:rounded-2xl shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)]">
               <div className="relative w-full h-[calc(100vh-280px)] overflow-hidden bg-black">
@@ -249,30 +249,34 @@ export const PreviewDreamHero: React.FC = () => {
 
             {/* Desktop: Side-by-Side Before/After Comparison */}
             <div className="hidden md:block relative w-full overflow-hidden bg-black rounded-2xl shadow-[0_50px_100px_-20px_rgba(47,116,181,0.2)]">
-              <div className="relative w-full aspect-[21/9] lg:h-[600px] bg-black min-h-[500px] overflow-hidden">
+              {/* Labels Above Images */}
+              <div className="flex mb-2 px-6 md:px-8 pt-4">
+                <div className="w-1/2 flex justify-center">
+                  <span className="text-white font-black text-sm tracking-[0.2em] uppercase">BEFORE</span>
+                </div>
+                <div className="w-1/2 flex justify-center">
+                  <span className="text-white font-black text-sm tracking-[0.2em] uppercase">AFTER</span>
+                </div>
+              </div>
+
+              <div className="relative w-full aspect-[16/9] lg:h-[400px] bg-black min-h-[350px] overflow-visible px-6 md:px-8">
                 {/* Photo Preview Mode - Side by Side */}
                 {viewMode === 'photo' && (
-                  <div className="relative w-full h-full flex">
+                  <div className="relative w-full h-full flex gap-4">
                     {/* BEFORE Section - Left Side */}
-                    <div className="relative w-1/2 h-full overflow-hidden border-r-2 border-white/10">
-                      <div className="absolute top-4 left-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
-                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">BEFORE</span>
-                      </div>
+                    <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
                       <img 
                         src="/images/before-mobile view.jpg" 
-                        className="w-full h-full object-cover" 
+                        className="w-full h-full object-cover rounded-lg" 
                         alt="Before" 
                       />
                     </div>
 
                     {/* AFTER Section - Right Side */}
-                    <div className="relative w-1/2 h-full overflow-hidden">
-                      <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
-                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">AFTER</span>
-                      </div>
+                    <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
                       <img 
                         src="/images/after-mobile view.png" 
-                        className="w-full h-full object-cover" 
+                        className="w-full h-full object-cover rounded-lg" 
                         alt="After" 
                       />
                     </div>
@@ -281,27 +285,21 @@ export const PreviewDreamHero: React.FC = () => {
 
                 {/* Video Preview Mode - Before on Left, Video on Right */}
                 {viewMode === 'video' && (
-                  <div className="relative w-full h-full flex">
+                  <div className="relative w-full h-full flex gap-4">
                     {/* BEFORE Section - Left Side */}
-                    <div className="relative w-1/2 h-full overflow-hidden border-r-2 border-white/10">
-                      <div className="absolute top-4 left-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
-                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">BEFORE</span>
-                      </div>
+                    <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
                       <img 
                         src="/images/before-mobile view.jpg" 
-                        className="w-full h-full object-cover" 
+                        className="w-full h-full object-cover rounded-lg" 
                         alt="Before" 
                       />
                     </div>
 
                     {/* AFTER/VIDEO Section - Right Side */}
-                    <div className="relative w-1/2 h-full overflow-hidden">
-                      <div className="absolute top-4 right-4 z-20 bg-black/70 backdrop-blur-md px-4 py-2 rounded">
-                        <span className="text-white font-black text-sm tracking-[0.2em] uppercase">AFTER</span>
-                      </div>
+                    <div className="relative w-1/2 h-full overflow-hidden rounded-lg">
                       <video
                         src="/videos/40e9e18b-71e3-436c-8b02-b9850aeb4e3a.mp4"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-lg"
                         autoPlay
                         loop
                         muted
@@ -313,7 +311,7 @@ export const PreviewDreamHero: React.FC = () => {
               </div>
 
               {/* Tabs - Below Image */}
-              <div className="flex justify-center gap-3 bg-black/70 backdrop-blur-md px-3 py-2 rounded-full mt-6 mb-4">
+              <div className="flex justify-center gap-3 bg-black/70 backdrop-blur-md px-3 py-2 rounded-full mt-3 mb-3 pb-4">
                 <button
                   onClick={() => {
                     setViewMode('photo');
@@ -345,7 +343,7 @@ export const PreviewDreamHero: React.FC = () => {
           {/* Enhanced CTA Button */}
           <a 
             href="#evaluation-form"
-            className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white font-black text-sm uppercase tracking-[0.3em] transition-all rounded-none"
+            className="group relative inline-flex items-center justify-center gap-4 px-12 py-4 bg-[#FF9A00] hover:bg-[#0A0E1A] text-white font-black text-sm uppercase tracking-[0.3em] transition-all rounded-none mt-4"
           >
             Get My Free Smile Preview
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
