@@ -53,11 +53,12 @@ export const ThankYou: React.FC = () => {
                     backgroundClip: 'text',
                     animationDelay: '0.1s'
                   }}>
-                  Thank you for your submission.
+                  You’re All Set
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                Your responses have been successfully recorded.
+              Thank you for sharing your details. One of our team members will be in touch shortly.
+              If you have any questions, feel free to call us at <strong>(281) 789-8836.
               </p>
             </div>
 
