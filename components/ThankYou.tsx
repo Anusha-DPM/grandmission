@@ -58,7 +58,7 @@ export const ThankYou: React.FC = () => {
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               Thank you for sharing your details. One of our team members will be in touch shortly.
-              If you have any questions, feel free to call us at <strong>(281) 789-8836.
+              If you have any questions, feel free to call us at <strong>(281) 789-8836.</strong>
               </p>
             </div>
 
